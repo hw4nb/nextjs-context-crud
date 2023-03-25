@@ -16,7 +16,7 @@ const Page = ({ params }) => {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(data => {
     if (params.id) {
       updateTask(params.id, data)
       toast.success('task updated successfully')
@@ -29,7 +29,7 @@ const Page = ({ params }) => {
 
   useEffect(() => {
     if (params.id) {
-      const taskFound = tasks.find((task) => task.id === params.id)
+      const taskFound = tasks.find(task => task.id === params.id)
       if (taskFound) {
         setValue('title', taskFound.title)
         setValue('description', taskFound.description)
